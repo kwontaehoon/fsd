@@ -1,0 +1,25 @@
+export type BoardPost = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  author: string;
+  author_type: "user" | "official";
+  type: "user-post" | "official-post";
+  duration: string;
+  estimated_time: string;
+  rating: number;
+  views: number;
+  likes: number;
+  participants: string;
+  difficulty: "1" | "2" | "3";
+  total_cost: number;
+  total_locations: number;
+  total_comments: number;
+  total_distance: string;
+  total_places: number;
+  created_at: string;
+  reliability: number | null;
+  bookmark: number;
+  user_id: number;
+};
