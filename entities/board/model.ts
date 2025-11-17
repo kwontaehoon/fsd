@@ -23,3 +23,12 @@ export type BoardPost = {
   bookmark: number;
   user_id: number;
 };
+
+export type BoardCreate = {
+  title: string;
+  subtitle: string;
+  description: string;
+  author: string;
+  total_cost: number;
+  user_id: number;
+};

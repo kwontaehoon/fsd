@@ -1,19 +1,20 @@
-import { fetchBoardList } from '@/entities/board/api';
-import { BoardListFeature } from '@/features/board-list/ui/BoardList';
+import BoardList from "@/features/board-list/ui/BoardList";
+import CreateBoard from "@/features/board-create/ui/CreateBoard";
+import DeleteBoard from "@/features/board-delete/ui/DeleteBoard";
+import Header from '@/widgets/header'
 
-const page = async() => {
- 
-  console.log(await fetchBoardList())
-
+const page = async () => {
   return (
     <div>
-      <h1>전체 여행 기록</h1>
-      <p style={{ marginBottom: '30px' }}>사용자들이 공유한 다양한 여행 게시물을 확인해보세요.</p>
-      
-      {/* 💡 기능 컴포넌트(Feature)만 배치 */}
-      <BoardListFeature />
-    </div>
-  )
-}
+      <Header />
+      <main>
+        <CreateBoard />
+        <BoardList />
+      </main>
 
-export default page
+      {/* 💡 기능 컴포넌트(Feature)만 배치 */}
+    </div>
+  );
+};
+
+export default page;
