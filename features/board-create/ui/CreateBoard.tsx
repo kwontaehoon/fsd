@@ -19,7 +19,17 @@ const CreateBoard = () => {
         })
       }
     >
-      <div className="cursor-pointer flex items-center space-x-2 px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-300">
+      <div 
+        className="retro-button cursor-pointer flex items-center space-x-2 px-8 py-4 text-white transition-all duration-300"
+        style={{
+          background: 'linear-gradient(135deg, #e94560 0%, #ff1493 100%)',
+          border: '3px solid #00d9ff',
+          fontFamily: "'Press Start 2P', cursive",
+          fontSize: '0.7rem',
+          boxShadow: '0 0 15px #e94560, inset 0 0 10px rgba(233, 69, 96, 0.3)',
+          textShadow: '0 0 10px rgba(255, 255, 255, 0.8)'
+        }}
+      >
         새 게시글 작성
       </div>
     </div>

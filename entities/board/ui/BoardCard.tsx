@@ -8,13 +8,32 @@ interface BoardCardProps {
 
 export function BoardCard({ post }: BoardCardProps) {
   return (
-    <div className="rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200">
-      <div className="text-xl text-gray-900 mb-2">{post.title}</div>
-      <p style={{ fontSize: "0.9em", color: "#666" }}>
+    <div className="retro-box p-6 mb-4 hover:scale-105 transition-all duration-300" style={{
+      borderColor: '#00d9ff',
+      borderWidth: '2px',
+      borderStyle: 'solid'
+    }}>
+      <div className="text-2xl mb-3 retro-glow" style={{ 
+        color: '#00ff41',
+        fontFamily: "'Press Start 2P', cursive",
+        fontSize: '1rem',
+        lineHeight: '1.5'
+      }}>{post.title}</div>
+      <p style={{ 
+        fontSize: "1.2em", 
+        color: "#00d9ff",
+        fontFamily: "'VT323', monospace",
+        marginBottom: '10px',
+        textShadow: '0 0 5px #00d9ff'
+      }}>
         작성자: {post.author} | 기간: {post.duration}
       </p>
-      <div className="mt-4 flex">
-        <span className="flex-1">⭐ {post.rating}점</span>
+      <div className="mt-4 flex items-center">
+        <span className="flex-1 text-xl" style={{ 
+          color: '#ffd700',
+          fontFamily: "'VT323', monospace",
+          textShadow: '0 0 10px #ffd700'
+        }}>⭐ {post.rating}점</span>
         <DeleteBoard />
       </div>
     </div>

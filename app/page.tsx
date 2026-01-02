@@ -5,8 +5,22 @@ import Header from '@/widgets/header'
 
 const page = async () => {
   return (
-    <div>
-      <div>dev</div>
+    <div style={{ position: 'relative' }}>
+      <div 
+        style={{ 
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          fontFamily: "'Press Start 2P', cursive",
+          fontSize: '0.6rem',
+          color: '#ff1493',
+          textShadow: '0 0 10px #ff1493',
+          opacity: 0.7,
+          zIndex: 10
+        }}
+      >
+        dev
+      </div>
       <Header />
       <main>
         <CreateBoard />

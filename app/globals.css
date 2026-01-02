@@ -1,32 +1,164 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --retro-bg: #1a1a2e;
+  --retro-primary: #0f3460;
+  --retro-accent: #e94560;
+  --retro-cyan: #00d9ff;
+  --retro-yellow: #ffd700;
+  --retro-pink: #ff1493;
+  --retro-green: #00ff41;
+  --retro-text: #00ff41;
+  --retro-border: #00d9ff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--retro-bg);
+  --color-foreground: var(--retro-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-attachment: fixed;
+  color: var(--retro-text);
+  font-family: 'VT323', monospace;
   width: 70%;
   margin: 50px auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CRT 모니터 효과 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* 스캔라인 효과 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 65, 0.3) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 10000;
+  animation: scanline-move 2s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% {
+    top: -4px;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 main {
   margin: 100px 0px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 레트로 텍스트 글로우 효과 */
+.retro-glow {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
+
+/* 레트로 박스 스타일 */
+.retro-box {
+  border: 3px solid var(--retro-border);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 0 10px var(--retro-cyan),
+    inset 0 0 10px rgba(0, 217, 255, 0.1);
+  position: relative;
+}
+
+.retro-box::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, var(--retro-cyan), var(--retro-pink), var(--retro-yellow), var(--retro-green));
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(10px);
+}
+
+/* 레트로 버튼 호버 효과 */
+.retro-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.retro-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 20px var(--retro-accent),
+    0 0 40px var(--retro-accent),
+    0 0 60px var(--retro-accent);
+}
+
+/* 레트로 입력 필드 */
+.retro-input {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--retro-cyan);
+  color: var(--retro-green);
+  font-family: 'VT323', monospace;
+  box-shadow: 
+    0 0 10px var(--retro-cyan),
+    inset 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+.retro-input:focus {
+  outline: none;
+  border-color: var(--retro-pink);
+  box-shadow: 
+    0 0 20px var(--retro-pink),
+    inset 0 0 10px rgba(255, 20, 147, 0.2);
 }

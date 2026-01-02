@@ -7,19 +7,45 @@ const BoardList = () => {
   const { data: posts, isLoading, error } = useFetchBoardListQuery();
 
   if (isLoading) {
-    return <p style={{ textAlign: "center" }}>게시물 로딩 중...</p>;
+    return (
+      <p style={{ 
+        textAlign: "center",
+        fontFamily: "'VT323', monospace",
+        fontSize: '1.5rem',
+        color: '#00d9ff',
+        textShadow: '0 0 10px #00d9ff'
+      }}>
+        게시물 로딩 중...
+      </p>
+    );
   }
 
   if (error) {
     return (
-      <p style={{ color: "red", textAlign: "center" }}>
+      <p style={{ 
+        color: "#e94560", 
+        textAlign: "center",
+        fontFamily: "'VT323', monospace",
+        fontSize: '1.5rem',
+        textShadow: '0 0 10px #e94560'
+      }}>
         데이터를 불러오는 중 오류가 발생했습니다.
       </p>
     );
   }
 
   if (!posts || posts.length === 0) {
-    return <p style={{ textAlign: "center" }}>등록된 게시물이 없습니다.</p>;
+    return (
+      <p style={{ 
+        textAlign: "center",
+        fontFamily: "'VT323', monospace",
+        fontSize: '1.5rem',
+        color: '#00d9ff',
+        textShadow: '0 0 10px #00d9ff'
+      }}>
+        등록된 게시물이 없습니다.
+      </p>
+    );
   }
 
   return (
