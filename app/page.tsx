@@ -6,6 +6,7 @@ import Header from '@/widgets/header'
 const page = async () => {
   return (
     <div>
+      <div>dev</div>
       <Header />
       <main>
         <CreateBoard />
